@@ -46,14 +46,16 @@ export function ProductsCombobox({
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-[200px] justify-between"
+          className="w-[400px] justify-between"
         >
-          {selectedProduct ? selectedProduct.title : "Select a product"}
+          {selectedProduct
+            ? renderProductItem(selectedProduct)
+            : "Select a product"}
           <ChevronsUpDown className="opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[200px] p-0">
-        <Command>
+      <PopoverContent className="w-[400px] p-0">
+        <Command shouldFilter={false}>
           <CommandInput
             placeholder="Search products..."
             className="h-9"

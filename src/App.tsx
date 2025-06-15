@@ -8,7 +8,7 @@ function App() {
         <ProductsCombobox
           products={[]}
           selectedProduct={null}
-          query=""
+          query={""}
           onQueryChange={() => {}}
           onProductSelect={() => {}}
           renderProductItem={() => <div>Product</div>}

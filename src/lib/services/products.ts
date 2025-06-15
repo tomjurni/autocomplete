@@ -1,3 +1,5 @@
+import { mockProducts } from "@/mock/products";
+
 export interface Product {
   id: number;
   title: string;
@@ -12,11 +14,9 @@ export interface Product {
 }
 
 export const getProducts = async (query: string): Promise<Product[]> => {
-  const response = await fetch("https://fakestoreapi.com/products");
+  await new Promise((resolve) => setTimeout(resolve, 1000));
 
-  const allProducts = (await response.json()) as Product[];
-
-  const filteredProducts = allProducts.filter((product) =>
+  const filteredProducts = mockProducts.filter((product) =>
     product.title.toLowerCase().includes(query.toLowerCase())
   );
 

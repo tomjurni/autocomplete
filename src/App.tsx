@@ -1,12 +1,19 @@
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
+import { ProductsCombobox } from "@/components/products-combobox";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div>
-      <Button>Click me</Button>
+    <div className="flex flex-col items-center justify-center h-screen">
+      <div className="flex flex-col gap-2">
+        <p>Select a product</p>
+        <ProductsCombobox
+          products={[]}
+          selectedProduct={null}
+          query=""
+          onQueryChange={() => {}}
+          onProductSelect={() => {}}
+          renderProductItem={() => <div>Product</div>}
+        />
+      </div>
     </div>
   );
 }

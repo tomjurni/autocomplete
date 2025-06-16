@@ -28,6 +28,10 @@ const validateProduct = (product: any): product is Product => {
 };
 
 export const getProducts = async (query: string): Promise<Product[]> => {
+  if (!query) {
+    return [];
+  }
+
   await new Promise((resolve) => setTimeout(resolve, 1000));
 
   const filteredProducts = mockProducts.filter((product) =>

@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Check, ChevronsUpDown } from "lucide-react";
+import { Check, ChevronsUpDown, Loader2 } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -27,6 +27,7 @@ interface Props {
   onQueryChange: (query: string) => void;
   onProductSelect: (id: number) => void;
   renderProductItem: (product: Product) => React.ReactNode;
+  isLoading: boolean;
 }
 
 export function ProductsCombobox({
@@ -36,6 +37,7 @@ export function ProductsCombobox({
   onQueryChange,
   onProductSelect,
   renderProductItem,
+  isLoading,
 }: Props) {
   const [open, setOpen] = React.useState(false);
 
@@ -85,6 +87,11 @@ export function ProductsCombobox({
                   />
                 </CommandItem>
               ))}
+              {isLoading && (
+                <CommandItem className="flex justify-center items-center">
+                  <Loader2 className="animate-spin" />
+                </CommandItem>
+              )}
             </CommandGroup>
           </CommandList>
         </Command>

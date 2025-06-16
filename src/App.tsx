@@ -14,6 +14,7 @@ function App() {
             onQueryChange={() => {}}
             onProductSelect={() => {}}
             renderProductItem={() => <div>Product</div>}
+            isLoading={false}
           />
           <Button className="w-fit" size="sm">
             Submit
